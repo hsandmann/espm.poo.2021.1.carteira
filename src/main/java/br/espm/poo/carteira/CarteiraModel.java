@@ -1,5 +1,6 @@
 package br.espm.poo.carteira;
 
+import br.espm.poo.auth.common.datatype.Usuario;
 import br.espm.poo.carteira.common.datatype.Carteira;
 
 import javax.persistence.Column;
@@ -28,18 +29,18 @@ public class CarteiraModel {
 
     public CarteiraModel(Carteira c) {
         this.idCarteira = c.getId();
-        // this.idUsuario = c.getUsuario.getId();
+        this.idUsuario = c.getUsuario().getId();
         this.vrSaldo = c.getSaldo();
     }
 
     public Carteira to() {
-        // Usuario usuario = new Usuario();
-        // usuario.setId(idUsuario);
+        Usuario usuario = new Usuario();
+        usuario.setId(idUsuario);
 
         Carteira c = new Carteira();
         c.setId(this.idCarteira);
         c.setSaldo(this.vrSaldo);
-        // c.setUsuario(usuario);
+        c.setUsuario(usuario);
         return c;
     }
 
